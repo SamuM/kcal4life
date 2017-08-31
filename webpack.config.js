@@ -1,5 +1,4 @@
 const path = require('path');
-
 module.exports = {
     entry: path.resolve(__dirname, './src/index.js'),
     output: {
@@ -17,6 +16,13 @@ module.exports = {
                         presets: ['react', 'env']
                     }
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
             }
         ]
     }
