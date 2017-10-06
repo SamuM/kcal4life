@@ -6,7 +6,6 @@ import IngredientInput from './ingredientInput';
 import IngredientList from './ingredientList';
 
 export default class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = {ingredients: []};
@@ -19,13 +18,11 @@ export default class App extends Component {
     this.setState({ingredients: ingredientsArray});
   }
   render() {
-    const ingredient = this.state.ingredient;
     const ingredients = this.state.ingredients;
     return (
       <div>
         <Header></Header>
-        <IngredientInput  ingredient={ingredient}
-                          handleIngredientChange={this.handleIngredientChange}>
+        <IngredientInput handleIngredientChange={this.handleIngredientChange}>
         </IngredientInput>
         <IngredientList ingredients={ingredients}></IngredientList>
       </div>

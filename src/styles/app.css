@@ -1,3 +1,7 @@
 h1 {
     color: #31416D;
 }
+
+#ingredient-input input[type=number] {
+  width: 35px;
+}
