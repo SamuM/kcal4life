@@ -4,7 +4,7 @@ https://www.codementor.io/arnavaggrwl/react-ecosystem-setup-step-by-step-walkthr
 
 
 To run:
-´´´ 
+``` 
 Run webpack and watch for changes:
 webpack -d --watch
 
@@ -13,5 +13,4 @@ npm start
 
 Close node server:
 ctrl+c
-
-´´´ 
+```
