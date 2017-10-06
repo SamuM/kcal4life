@@ -6,8 +6,8 @@ function IngredientItem(props) {
 
 function IngredientsElement(props) {
   const ingredients = props.ingredients;
-  const ingredientsList = ingredients.map((name) =>
-    <IngredientItem key={name.toString()} value={name}></IngredientItem>
+  const ingredientsList = ingredients.map((name, index) =>
+    <IngredientItem key={name.toString() + index.toString()} value={name}></IngredientItem>
   );
 
   return (

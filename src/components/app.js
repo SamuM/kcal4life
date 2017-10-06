@@ -16,7 +16,7 @@ export default class App extends Component {
   handleIngredientChange(ingredient) {
     const ingredientsArray = this.state.ingredients;
     ingredientsArray.push(ingredient);
-    this.setState({ingredientsArray});
+    this.setState({ingredients: ingredientsArray});
   }
   render() {
     const ingredient = this.state.ingredient;
