@@ -61,7 +61,6 @@ export default class IngredientList extends Component {
     const ingredients = this.props.ingredients;
 
     return (
-      <div>
       <table className="table-container">
         <thead>
       		<tr>
@@ -74,9 +73,7 @@ export default class IngredientList extends Component {
       		</tr>
   	    </thead>
           <IngredientsElement ingredients={ingredients} />
-
       </table>
-      </div>
     );
   }
 }

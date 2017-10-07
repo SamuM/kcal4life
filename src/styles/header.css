@@ -1,3 +1,7 @@
 #app-header {
   text-align: center;
 }
+
+.header-highlight-color {
+  color: #185875;
+}

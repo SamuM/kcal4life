@@ -1,6 +1,5 @@
 
 #ingredient-input {
-  border-bottom: 1px solid #fff;
   width: 50%;
 }
 
@@ -11,7 +10,7 @@
 .input-wrapper {
   width: 100%;
   height: 35px;
-  border-bottom: 1px solid #4b9fe6;
+  border-bottom: 1px solid #185875;
 }
 
 .input-wrapper label {
@@ -34,6 +33,14 @@
 
 .input-wrapper input[type=submit] {
   width: 100%;
+  background: #323C50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-wrapper input[type=submit]:hover {
+  background: #185875;
 }
 
 .ingredient-name-row {
