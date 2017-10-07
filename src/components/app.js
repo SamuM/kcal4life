@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../styles/app.css';
 import '../styles/simple-grid.css';
+import '../styles/table.css';
 
 import Header from './header';
 import IngredientInput from './ingredientInput';

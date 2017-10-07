@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 
 function IngredientItem(props) {
-  return  <li>  {props.value.name}
-                Weight: {props.value.weight}
-                Calories: {props.value.kcal}
-                Carbs: {props.value.carbs}
-                Protein: {props.value.protein}
-                Fat: {props.value.fat}
-          </li>;
+  return  (
+          <tr>
+            <td>{props.value.name}</td>
+            <td>{props.value.weight}</td>
+            <td>{props.value.kcal}</td>
+            <td>{props.value.carbs}</td>
+            <td>{props.value.protein}</td>
+            <td>{props.value.fat}</td>
+          </tr>
+          );
 }
 
 function IngredientsElement(props) {
@@ -17,15 +20,16 @@ function IngredientsElement(props) {
   );
 
   return (
-    <ul>
-    {ingredientsList}
-    </ul>
+    <tbody>
+      {ingredientsList}
+      <IngredientsSummary ingredients={props.ingredients} />
+    </tbody>
   );
 }
 
 function IngredientsSummary(props) {
   if (props.ingredients.length == 0 || props.ingredients === undefined) {
-    return <div></div>;
+    return <tr></tr>;
   };
 
   let sum = itemKey => {
@@ -37,44 +41,14 @@ function IngredientsSummary(props) {
   };
 
   return (
-    <div id="ingredient-summary-container" className="center container">
-      <div className="row">
-        <div className="col-3">
-          <div>Weight</div>
-        </div>
-        <div className="col-3">
-          <div>Kcal</div>
-        </div>
-        <div className="col-2">
-          <div>Carbs</div>
-        </div>
-        <div className="col-2">
-          <div>Protein</div>
-        </div>
-        <div className="col-2">
-          <div>Fat</div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="center">
-          <div className="col-3">
-            <div>{sum('weight')}</div>
-          </div>
-          <div className="col-3">
-            <div>{sum('kcal')}</div>
-          </div>
-          <div className="col-2">
-            <div>{sum('carbs')}</div>
-          </div>
-          <div className="col-2">
-            <div>{sum('protein')}</div>
-          </div>
-          <div className="col-2">
-            <div>{sum('fat')}</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <tr>
+      <td>Total</td>
+      <td>{sum('weight')}</td>
+      <td>{sum('kcal')}</td>
+      <td>{sum('carbs')}</td>
+      <td>{sum('protein')}</td>
+      <td>{sum('fat')}</td>
+    </tr>
   );
 }
 
@@ -88,8 +62,20 @@ export default class IngredientList extends Component {
 
     return (
       <div>
-        <IngredientsElement ingredients={ingredients} />
-        <IngredientsSummary ingredients={ingredients} />
+      <table className="table-container">
+        <thead>
+      		<tr>
+      			<th><h1>Name</h1></th>
+      			<th><h1>Weight</h1></th>
+      			<th><h1>Calories</h1></th>
+      			<th><h1>Carbs</h1></th>
+            <th><h1>Protein</h1></th>
+            <th><h1>Fat</h1></th>
+      		</tr>
+  	    </thead>
+          <IngredientsElement ingredients={ingredients} />
+
+      </table>
       </div>
     );
   }

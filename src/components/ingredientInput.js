@@ -10,18 +10,30 @@ export default class IngredientInput extends Component {
                     protein: 0,
                     fat: 0  };
     this.handleChange = this.handleChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     var value = e.target.value;
 
+    // Don't allow negative values.
+    if (value < 0) {
+      this.setState({[e.target.name]: 0});
+      return;
+    }
     // Inputs return string by default so we need to convert them to floats
     if (e.target.type === 'number') {
       value = parseFloat(value);
     }
 
     this.setState({[e.target.name]: value});
+  }
+
+  handleFocus(e) {
+    if (e.target.value == 0) {
+      e.target.value = null;
+    }
   }
 
   handleSubmit(e) {
@@ -57,6 +69,7 @@ export default class IngredientInput extends Component {
         <div className="input-wrapper">
           <input  name="weight"
                   type="number"
+                  onFocus={this.handleFocus}
                   onChange={this.handleChange}
                   value={weight} />
           <label>Weight</label>
@@ -64,6 +77,7 @@ export default class IngredientInput extends Component {
         <div className="input-wrapper">
           <input  name="kcal"
                   type="number"
+                  onFocus={this.handleFocus}
                   onChange={this.handleChange}
                   value={kcal} />
           <label>Calories</label>
@@ -71,6 +85,7 @@ export default class IngredientInput extends Component {
         <div className="input-wrapper">
           <input  name="carbs"
                   type="number"
+                  onFocus={this.handleFocus}
                   onChange={this.handleChange}
                   value={carbs} />
           <label>Carbs</label>
@@ -78,6 +93,7 @@ export default class IngredientInput extends Component {
         <div className="input-wrapper">
           <input  name="protein"
                   type="number"
+                  onFocus={this.handleFocus}
                   onChange={this.handleChange}
                   value={protein} />
           <label>Protein</label>
@@ -85,6 +101,7 @@ export default class IngredientInput extends Component {
         <div className="input-wrapper">
           <input  name="fat"
                   type="number"
+                  onFocus={this.handleFocus}
                   onChange={this.handleChange}
                   value={fat} />
           <label>Fat</label>
