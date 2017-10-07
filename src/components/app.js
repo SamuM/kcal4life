@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../styles/app.css';
+import '../styles/simple-grid.css';
 
 import Header from './header';
 import IngredientInput from './ingredientInput';
@@ -22,9 +23,11 @@ export default class App extends Component {
     return (
       <div>
         <Header></Header>
-        <IngredientInput handleIngredientChange={this.handleIngredientChange}>
-        </IngredientInput>
-        <IngredientList ingredients={ingredients}></IngredientList>
+        <div id="calculator" className="center">
+          <IngredientInput handleIngredientChange={this.handleIngredientChange}>
+          </IngredientInput>
+          <IngredientList ingredients={ingredients}></IngredientList>
+        </div>
       </div>
     );
   }

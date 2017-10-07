@@ -14,7 +14,14 @@ export default class IngredientInput extends Component {
   }
 
   handleChange(e) {
-    this.setState({[e.target.name]: e.target.value});
+    var value = e.target.value;
+
+    // Inputs return string by default so we need to convert them to floats
+    if (e.target.type === 'number') {
+      value = parseFloat(value);
+    }
+
+    this.setState({[e.target.name]: value});
   }
 
   handleSubmit(e) {
@@ -38,51 +45,53 @@ export default class IngredientInput extends Component {
 
 
     return (
-      <form id="ingredient-input" onSubmit={this.handleSubmit}>
-      <label>
-        Name:
-        <input  name="name"
-                type="text"
-                placeholder="Ingredient name"
-                onChange={this.handleChange}
-                value={name} />
-        </label>
-        <label>
-          Weight:
+      <form id="ingredient-input" className="center" onSubmit={this.handleSubmit}>
+        <div className="input-wrapper">
+          <input  name="name"
+                  type="text"
+                  placeholder="Ingredient name"
+                  onChange={this.handleChange}
+                  value={name} />
+          <label>Name</label>
+        </div>
+        <div className="input-wrapper">
           <input  name="weight"
                   type="number"
                   onChange={this.handleChange}
                   value={weight} />
-        </label>
-        <label>
-          Calories:
+          <label>Weight</label>
+        </div>
+        <div className="input-wrapper">
           <input  name="kcal"
                   type="number"
                   onChange={this.handleChange}
                   value={kcal} />
-        </label>
-        <label>
-          Carbs:
+          <label>Calories</label>
+        </div>
+        <div className="input-wrapper">
           <input  name="carbs"
                   type="number"
                   onChange={this.handleChange}
                   value={carbs} />
-        </label>
-        <label>
-          Protein:
+          <label>Carbs</label>
+        </div>
+        <div className="input-wrapper">
           <input  name="protein"
                   type="number"
                   onChange={this.handleChange}
                   value={protein} />
-        </label>
-        <label>
-          Fat:
+          <label>Protein</label>
+        </div>
+        <div className="input-wrapper">
           <input  name="fat"
                   type="number"
                   onChange={this.handleChange}
                   value={fat} />
-        </label>
-        <input type="submit" value="Add" />
+          <label>Fat</label>
+        </div>
+        <div className="input-wrapper">
+          <input type="submit" value="Add" />
+        </div>
       </form>
     );
   }

@@ -24,13 +24,56 @@ function IngredientsElement(props) {
 }
 
 function IngredientsSummary(props) {
-  let sum = key => {
-    console.log(props)
-     return 100;
+  if (props.ingredients.length == 0 || props.ingredients === undefined) {
+    return <div></div>;
   };
+
+  let sum = itemKey => {
+    var value = 0;
+    props.ingredients.forEach(function (item) {
+      value = item[itemKey] + value;
+    });
+     return value;
+  };
+
   return (
-    <div id="ingredient-summary-container">
-      <p>{weight('weight')}</p>
+    <div id="ingredient-summary-container" className="center container">
+      <div className="row">
+        <div className="col-3">
+          <div>Weight</div>
+        </div>
+        <div className="col-3">
+          <div>Kcal</div>
+        </div>
+        <div className="col-2">
+          <div>Carbs</div>
+        </div>
+        <div className="col-2">
+          <div>Protein</div>
+        </div>
+        <div className="col-2">
+          <div>Fat</div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="center">
+          <div className="col-3">
+            <div>{sum('weight')}</div>
+          </div>
+          <div className="col-3">
+            <div>{sum('kcal')}</div>
+          </div>
+          <div className="col-2">
+            <div>{sum('carbs')}</div>
+          </div>
+          <div className="col-2">
+            <div>{sum('protein')}</div>
+          </div>
+          <div className="col-2">
+            <div>{sum('fat')}</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
