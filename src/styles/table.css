@@ -28,6 +28,10 @@
   padding-left:2%;
 }
 
+.table-container tr:last-child td {
+  color: #38f138;
+}
+
 /* Background-color of the odd rows */
 .table-container tr:nth-child(odd) {
 	background-color: #323C50;

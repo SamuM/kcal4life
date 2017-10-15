@@ -1,3 +1,11 @@
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
 
 #ingredient-input {
   width: 50%;
@@ -16,6 +24,8 @@
 .input-wrapper label {
   float: right;
   color: #BBB;
+  width: 49%;
+  text-align: right;
 }
 
 .input-wrapper input:focus {
@@ -23,7 +33,7 @@
 }
 
 .input-wrapper input[type=text], .input-wrapper input[type=number] {
-  width: 75%;
+  width: 50%;
   border: none;
   float: left;
   background: none;
@@ -50,4 +60,8 @@
 
 .ingredient-name-row div {
   line-height: 0;
+}
+
+.highlight-orange {
+  color: orange;
 }

@@ -72,7 +72,7 @@ export default class IngredientInput extends Component {
                   onFocus={this.handleFocus}
                   onChange={this.handleChange}
                   value={weight} />
-          <label>Weight</label>
+          <label>Weight (<span className="highlight-orange">g</span>)</label>
         </div>
         <div className="input-wrapper">
           <input  name="kcal"
@@ -80,7 +80,7 @@ export default class IngredientInput extends Component {
                   onFocus={this.handleFocus}
                   onChange={this.handleChange}
                   value={kcal} />
-          <label>Calories</label>
+          <label>Calories <span className="highlight-orange">/</span> 100g</label>
         </div>
         <div className="input-wrapper">
           <input  name="carbs"
@@ -88,7 +88,7 @@ export default class IngredientInput extends Component {
                   onFocus={this.handleFocus}
                   onChange={this.handleChange}
                   value={carbs} />
-          <label>Carbs</label>
+          <label>Carbs <span className="highlight-orange">/</span> 100g</label>
         </div>
         <div className="input-wrapper">
           <input  name="protein"
@@ -96,7 +96,7 @@ export default class IngredientInput extends Component {
                   onFocus={this.handleFocus}
                   onChange={this.handleChange}
                   value={protein} />
-          <label>Protein</label>
+          <label>Protein <span className="highlight-orange">/</span> 100g</label>
         </div>
         <div className="input-wrapper">
           <input  name="fat"
@@ -104,7 +104,7 @@ export default class IngredientInput extends Component {
                   onFocus={this.handleFocus}
                   onChange={this.handleChange}
                   value={fat} />
-          <label>Fat</label>
+          <label>Fat <span className="highlight-orange">/</span> 100g</label>
         </div>
         <div className="input-wrapper">
           <input type="submit" value="Add" />
