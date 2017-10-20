@@ -58,58 +58,73 @@ export default class IngredientInput extends Component {
 
     return (
       <form id="ingredient-input" className="center" onSubmit={this.handleSubmit}>
-        <div className="input-wrapper">
-          <input  name="name"
-                  type="text"
-                  placeholder="Ingredient name"
-                  onChange={this.handleChange}
-                  value={name} />
-          <label>Name</label>
-        </div>
-        <div className="input-wrapper">
-          <input  name="weight"
-                  type="number"
-                  onFocus={this.handleFocus}
-                  onChange={this.handleChange}
-                  value={weight} />
-          <label>Weight (<span className="highlight-orange">g</span>)</label>
-        </div>
-        <div className="input-wrapper">
-          <input  name="kcal"
-                  type="number"
-                  onFocus={this.handleFocus}
-                  onChange={this.handleChange}
-                  value={kcal} />
-          <label>Calories <span className="highlight-orange">/</span> 100g</label>
-        </div>
-        <div className="input-wrapper">
-          <input  name="carbs"
-                  type="number"
-                  onFocus={this.handleFocus}
-                  onChange={this.handleChange}
-                  value={carbs} />
-          <label>Carbs <span className="highlight-orange">/</span> 100g</label>
-        </div>
-        <div className="input-wrapper">
-          <input  name="protein"
-                  type="number"
-                  onFocus={this.handleFocus}
-                  onChange={this.handleChange}
-                  value={protein} />
-          <label>Protein <span className="highlight-orange">/</span> 100g</label>
-        </div>
-        <div className="input-wrapper">
-          <input  name="fat"
-                  type="number"
-                  onFocus={this.handleFocus}
-                  onChange={this.handleChange}
-                  value={fat} />
-          <label>Fat <span className="highlight-orange">/</span> 100g</label>
-        </div>
+        <InputContent name="Name"
+                      type="text"
+                      focus={this.handleFocus}
+                      change={this.handleChange}
+                      value={name}
+                      placeholder="Ingredient name"/>
+        <InputContent name="Weight"
+                      type="number"
+                      focus={this.handleFocus}
+                      change={this.handleChange}
+                      value={weight}
+                      unit="g"/>
+        <InputContent name="Kcal"
+                      type="number"
+                      focus={this.handleFocus}
+                      change={this.handleChange}
+                      value={kcal}
+                      unit="100g"/>
+        <InputContent name="Carbs"
+                      type="number"
+                      focus={this.handleFocus}
+                      change={this.handleChange}
+                      value={carbs}
+                      unit="100g"/>
+        <InputContent name="Protein"
+                      type="number"
+                      focus={this.handleFocus}
+                      change={this.handleChange}
+                      value={protein}
+                      unit="100g"/>
+        <InputContent name="Fat" type="number"
+                      focus={this.handleFocus}
+                      change={this.handleChange}
+                      value={fat}
+                      unit="100g"/>
         <div className="input-wrapper">
           <input type="submit" value="Add" />
         </div>
       </form>
     );
   }
+}
+
+function InputContent(props) {
+  const name = props.name;
+  const nameLowerCase = props.name.toLowerCase();
+  const type = props.type;
+  const focus = props.focus;
+  const change = props.change;
+  const value = props.value;
+  const unit = props.unit;
+  const placeholder = props.placeholder;
+  return (
+    <div className="input-wrapper">
+      <input  name={nameLowerCase}
+              type={type}
+              onFocus={focus}
+              onChange={change}
+              value={value}
+              placeholder={placeholder}/>
+      <label>{name}
+        { unit != null &&
+          <span>
+            <span className="highlight-orange"> / </span><span>{unit}</span>
+          </span>
+        }
+      </label>
+    </div>
+  );
 }
